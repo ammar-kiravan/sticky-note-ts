@@ -1,38 +1,116 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.sticky-note {
+  border-radius: 8px;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.25);
   display: flex;
   flex-direction: column;
+  font-family: 'Caveat', cursive, "Comic Sans MS", "Chalkboard SE", sans-serif;
+  transition: box-shadow 0.1s ease-in-out;
+  min-width: 150px;
+  min-height: 150px;
+}
+
+.sticky-note-header {
+  padding: 8px 12px;
+  cursor: grab;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #333;
+}
+
+.sticky-note-delete-button {
+  background: none;
+  border: none;
+  color: #777;
+  font-size: 1.5em;
+  cursor: pointer;
+  padding: 0 5px;
+  line-height: 1;
+  transition: color 0.2s ease-in-out;
+}
+
+.sticky-note-delete-button:hover {
+  color: #c00;
+}
+
+.board {
+  width: 100vw;
+  height: 90vh;
+  overflow: hidden;
+  background-color: #f0f0f0;
+}
+
+
+
+.board-text{
+  font-size: 32px;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.trash-zone {
+  /*position: fixed;*/
+  /*bottom: 20px;*/
+  /*left: 50%;*/
+  /*transform: translateX(-50%);*/
+  width: 100v;
+  height: 100px;
+  background-color: #f8f8f8;
+  border: 2px dashed #cccccc;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #999999;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  pointer-events: none;
+  z-index: 999;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.sticky-note {
+  position: absolute;
+  border-radius: 8px;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  font-family: Caveat, cursive, "Comic Sans MS", "Chalkboard SE", sans-serif;
+  transition: box-shadow 0.1s ease-in-out;
+}
+
+.notes-colors {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  transition: transform 0.1s ease-in-out;
+}
+
+.sticky-note-resize-handle {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(0,0,0,0.1);
+  cursor: nwse-resize;
+  border-top-left-radius: 5px;
+  clip-path: polygon(100% 0, 0 100%, 100% 100%);
+}
+
+.notes-colors-container {
+  display: flex;
+  padding: 5px;
+  justify-content: center;
+  gap: 5px;
+  border-top: 1px solid rgba(0,0,0,0.05);
 }
