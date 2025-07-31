@@ -18,7 +18,7 @@ const Board = () => {
     }, [])
     const handleAddNote = (e: React.MouseEvent) => {
             const newZIndex = highestZIndex + 1;
-            setNotes((prevNotes) => {
+            setNotes((prevNotes: Note[]) => {
                 const notes = [
                     ...prevNotes,
                     {
